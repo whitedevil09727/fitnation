@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .calculator {
+            border: 1px solid #333;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 35%;
+            background-color: rgb(48, 197, 34);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weight Gain Calculator</h1>
+    <div class="calculator">
+        <label for "maintenance">Maintenance Calories:</label>
+        <input type="text" id="maintenance">
+        <br>
+        <button onclick="calculateCalories('gain')">Calculate</button>
+    </div>
+    <div class="result">
+        <p>You should consume <span id="calories">0</span> calories per day for weight gain.</p>
+    </div>
+    
+    <DIV>
+        <a href="WIEGHT GAIN1.html"><BUtton type="button" >WEIGHT-GAIN EXERCISES</BUtton></a>
+    </DIV>
+    <!-- <DIV>
+        <a href="WEIGHT LOSS1.html"><BUtton type="button" >WEIGHT-LOSS EXERCISES</BUtton></a>
+    </DIV> -->
+    
+    <script src="weight_gain.js"></script>
+</body>
+</html>

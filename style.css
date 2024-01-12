@@ -1,0 +1,64 @@
+/* Add a background color to the body */
+body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Style the navigation bar */
+.navbar {
+    background-color: #283e50; /* Change the background color */
+}
+
+.navbar-brand {
+    color: #ecf0f1; /* Change the brand text color */
+    font-size: 28px;
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1; /* Change the navigation links color */
+}
+
+/* Add some spacing to the carousel */
+#carouselExample {
+    margin-top: 20px;
+
+}
+
+/* Style the carousel captions */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6); /* Add a semi-transparent black background */
+    color: #ecf0f1; /* Change the caption text color */
+    border-radius: 5px;
+}
+
+/* Style the h1 heading on the carousel */
+.carousel-caption h1 {
+    font-size: 36px;
+}
+
+/* Style the paragraphs on the carousel */
+.carousel-caption p {
+    font-size: 18px;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 24px;
+    }
+
+    .carousel-caption h1 {
+        font-size: 28px;
+    }
+
+    .carousel-caption p {
+        font-size: 16px;
+    }
+}
+.carousel-item img {
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}

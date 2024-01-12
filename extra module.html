@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Calorie Calculator</title>
+    <link rel="stylesheet" href="extra module.css">
+    <style>
+        body {
+            background-image: url('extra module.jpg');
+            background-repeat: no-repeat;
+            background-size:100%;
+            background-position: center;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Food Calorie Calculator</h1>
+    <label for="foodDropdown">Select a food item:</label>
+    <select id="foodDropdown">
+        <option value="Paneer Tikka">Paneer Tikka</option>
+        <option value="Chicken Biryani">Chicken Biryani</option>
+        <option value="Palak Paneer">Palak Paneer</option>
+        <option value="Butter Chicken">Butter Chicken</option>
+        <option value="Masala Dosa">Masala Dosa</option>
+        <option value="Idly">Idly</option>
+        <option value="Poori">Poori</option>
+        <option value="Vada">Vada</option>
+        <option value="White Rice with Sambar">White Rice with Sambar</option>
+        <option value="Rice with Rasam">Rice with Rasam</option>
+        <option value="Pongal">Pongal</option>
+        <option value="Chapathi">Chapathi</option>
+        <option value="Chicken Gravy">Chicken Gravy</option>
+        <option value="Curd Rice">Curd Rice</option>
+        <option value="Mutton Gravy">Mutton Gravy</option>
+        <option value="Lemon Rice">Lemon Rice</option>
+        <option value="Chicken">Chicken</option>
+        <option value="Panner">Panner</option>
+        <option value="Chappathi">Chappathi</option>
+        <option value="Konda Kadalai (Chickpeas)">Konda Kadalai (Chickpeas)</option>
+        <option value="Broccoli">Broccoli</option>
+        <option value="Cooking Oil (per teaspoon)">Cooking Oil (per teaspoon)</option>
+        <option value="Egg">Egg</option>
+        <option value="Green Leafy Vegetables">Green Leafy Vegetables</option>
+        <option value="Mutton">Mutton</option>
+        <option value="Fish">Fish</option>
+        <option value="White Rice">White Rice</option>
+        <option value="Wheat Bread">Wheat Bread</option>
+        <option value="Banana">Banana</option>
+        <option value="Normal Milk">Normal Milk</option>
+        <option value="Almond Milk">Almond Milk</option>
+    </select>
+
+    <label for="amountInput">Enter the amount (in grams):</label>
+    <input type="number" id="amountInput" placeholder="Enter amount in grams">
+
+    <button onclick="calculateCalories()">Calculate Calories</button>
+
+    <div id="result"></div>
+
+    <script>
+        // Define calorie information for each food item (per 100 grams)
+        const foodCalories = {
+            "Paneer Tikka": 320,
+            "Chicken Biryani": 350,
+            "Palak Paneer": 130,
+            "Butter Chicken": 280,
+            "Masala Dosa": 160,
+            "Idly": 39,
+            "Poori": 320,
+            "Vada": 270,
+            "White Rice with Sambar": 130,
+            "Rice with Rasam": 100,
+            "Pongal": 150,
+            "Chapathi": 290,
+            "Chicken Gravy": 180,
+            "Curd Rice": 120,
+            "Mutton Gravy": 280,
+            "Lemon Rice": 160,
+            "Chicken": 165,
+            "Panner": 265,
+            "Chappathi": 320,
+            "Konda Kadalai (Chickpeas)": 164,
+            "Broccoli": 55,
+            "Cooking Oil (per teaspoon)": 40,
+            "Egg": 68,
+            "Green Leafy Vegetables": 20,
+            "Mutton": 250,
+            "Fish": 105,
+            "White Rice": 130,
+            "Wheat Bread": 250,
+            "Banana": 89,
+            "Normal Milk": 42,
+            "Almond Milk": 13
+        };
+
+        function calculateCalories() {
+            const foodDropdown = document.getElementById("foodDropdown");
+            const amountInput = document.getElementById("amountInput");
+            const resultDiv = document.getElementById("result");
+
+            const selectedFood = foodDropdown.value;
+            const amountGrams = parseFloat(amountInput.value);
+
+            if (isNaN(amountGrams) || amountGrams <= 0) {
+                resultDiv.innerText = "Please enter a valid amount in grams.";
+            } else if (!(selectedFood in foodCalories)) {
+                resultDiv.innerText = "Food item not found.";
+            } else {
+                const caloriesPer100g = foodCalories[selectedFood];
+                const totalCalories = (caloriesPer100g * amountGrams) / 100;
+                resultDiv.innerText = `Total Calories: ${totalCalories.toFixed(2)} calories`;
+            }
+        }
+    </script>
+</body>
+
+</html>

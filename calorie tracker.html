@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('calorie tracking.jpg'); /* Replace 'your-background-image.jpg' with your image URL */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            color: #665D60;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .calculator {
+            border: 1px solid #333;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 35%;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CALCULATE MAINTAINANCE CALORIE</h1>
+    <div class="calculator">
+        <label for="weight">Weight (kg):</label>
+        <input type="text" id="weight">
+        <br>
+        <label for="height">Height (cm):</label>
+        <input type="text" id="height">
+        <br>
+        <label for="age">Age:</label>
+        <input type="text" id="age">
+        <br>
+        <label for="gender">Gender (male/female):</label>
+        <input type="text" id="gender">
+        <br>
+        <label for="activity-level">Activity Level:</label>
+        <select id="activity-level">
+            <option value="lightly-active">Lightly Active</option>
+        </select>
+        <br>
+        <button onclick="calculateMaintenanceCalories()">Calculate</button>
+    </div>
+    <div class="result">
+        <p>Your estimated maintenance calories per day are: <span id="result">0</span> calories</p>
+    </div>
+    <div class="container">
+        <a href="weight gain.html"><button style="background-color: rgb(48, 197, 34)" class="btn btn-primary">WEIGHT GAIN</button></a>
+        <a href="weight loss.html"><button style="background-color: rgb(185, 32, 32)" class="btn btn-secondary">WEIGHT LOSS</button></a>
+    </div>
+
+    <script>
+        function calculateMaintenanceCalories() {
+            const weight = parseFloat(document.getElementById("weight").value);
+            const height = parseFloat(document.getElementById("height").value);
+            const age = parseInt(document.getElementById("age").value);
+            const gender = document.getElementById("gender").value;
+            const activityLevel = document.getElementById("activity-level").value;
+
+            let bmr;
+            if (gender.toLowerCase() === "male") {
+                bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+            } else if (gender.toLowerCase() === "female") {
+                bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            } else {
+                alert("Invalid gender. Please enter 'male' or 'female'.");
+                return;
+            }
+
+            const activityLevels = {
+                'lightly-active': 1.375
+            };
+
+            if (!(activityLevel in activityLevels)) {
+                alert("Invalid activity level. Choose from: lightly-active.");
+                return;
+            }
+
+            const maintenanceCalories = bmr * activityLevels[activityLevel];
+            document.getElementById("result").textContent = maintenanceCalories.toFixed(2) + " calories";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
